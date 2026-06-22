@@ -235,37 +235,43 @@ export default function Home() {
                   ].slice(0, 20));
 
                   const url =
-                    "https://ispeak-backend-production-d877.up.railway.app" +
-                    data.audio_url;
+                    data.audio_url.startsWith("http")
+                    ? data.audio_url
+                    : `${BACKEND_URL}${data.audio_url.startsWith("/") ? "" : "/"}${data.audio_url}`;
 
                   console.log(
                     "Audio URL:",
                     url
                   );
 
-                  setAudioUrl( 
+                  setAudioUrl(
                     url
                   );
 
-                const audio =
-                  new Audio(
-                    url
-                  );
+                  const audio =
+                    new Audio(
+                       url
+                    );
 
-                audio.volume = 1;
+                  audio.volume = 1; 
 
-                audio
-                  .play()
-                  .catch(
-                    (err) => {
+                  audio
+                    .play()
+                    .then(() => {
+
+                      console.log(
+                        "Audio playing"
+                      );
+
+                    })
+                    .catch((err) => {
 
                       console.error(
                         "Audio autoplay failed:",
                         err
                       );
 
-                    }
-                  );
+                    });
 
                   setStatus(
                     "Translation Ready"
