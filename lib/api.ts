@@ -1,6 +1,7 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL =
+  "https://ispeak-backend-production-d877.up.railway.app";
 
-export async function sendAudio(
+  export async function sendAudio(
   audioBlob: Blob,
   sourceLanguage: string,
   targetLanguage: string
