@@ -1,65 +1,431 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+
+import Hero from "@/components/Hero";
+import LanguagePicker from "@/components/LanguagePicker";
+import MicButton from "@/components/MicButton";
+import { sendAudio } from "@/lib/api";
+
+const LANGUAGE_NAMES = {
+  "": "Select Language",
+  auto: "Auto Detect",
+  en: "English",
+  hi: "Hindi",
+  kn: "Kannada",
+  ta: "Tamil",
+  te: "Telugu",
+  ml: "Malayalam"
+};
 
 export default function Home() {
+
+  const [status, setStatus] =
+    useState("Ready to translate");
+
+  const [audioUrl, setAudioUrl] =
+    useState<string | null>(null);
+
+  const [isProcessing, setIsProcessing] =
+    useState(false);
+
+  const [history, setHistory] =
+    useState<
+      {
+        original: string;
+        translated: string;
+        time: string;
+      }[]
+    >([]);
+
+  const [sourceLanguage, setSourceLanguage] =
+    useState("");
+
+  const [targetLanguage, setTargetLanguage] =
+    useState("hi");
+
+  function replayAudio() {
+
+    if (!audioUrl)
+      return;
+
+    const audio =
+      new Audio(
+        audioUrl
+      );
+
+    audio.currentTime = 0;
+
+    audio
+      .play()
+      .catch(
+        console.error
+      );
+
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main className="min-h-screen bg-slate-950 text-white">
+
+      <Hero />
+
+      <section className="px-6 pb-20">
+
+        <div
+          className="
+          max-w-5xl
+          mx-auto
+          mt-8
+          bg-slate-900/40
+          backdrop-blur-xl
+          border
+          border-slate-800
+          rounded-[40px]
+          p-8
+          "
+        >
+
+          <LanguagePicker
+            sourceLanguage={sourceLanguage}
+            targetLanguage={targetLanguage}
+            onSourceChange={setSourceLanguage}
+            onTargetChange={setTargetLanguage}
+          />
+
+          <div className="flex justify-center gap-4 mt-4">
+
+            <button
+              onClick={() => {
+
+                if (
+                  sourceLanguage === "" ||
+                  sourceLanguage === "auto"
+                ) return;
+
+                const temp =
+                  sourceLanguage;
+
+                setSourceLanguage(
+                  targetLanguage
+                );
+
+                setTargetLanguage(
+                  temp
+                );
+
+              }}
+              className="
+              px-4
+              py-2
+              rounded-xl
+              bg-slate-800
+              hover:bg-slate-700
+              transition
+              "
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              ⇄ Swap
+            </button>
+
+            <button
+              onClick={() =>
+                setHistory([])
+              }
+              className="
+              px-4
+              py-2
+              rounded-xl
+              bg-slate-800
+              hover:bg-slate-700
+              transition
+              "
             >
-              Learning
-            </a>{" "}
-            center.
+              Clear History
+            </button>
+
+          </div>
+
+          <p className="text-center text-slate-500 mt-4">
+
+            {
+              LANGUAGE_NAMES[
+                sourceLanguage as keyof typeof LANGUAGE_NAMES
+              ]
+            }
+
+            {" → "}
+
+            {
+              LANGUAGE_NAMES[
+                targetLanguage as keyof typeof LANGUAGE_NAMES
+              ]
+            }
+
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+
+          <div className="mt-10">
+
+            <MicButton
+              disabled={isProcessing}
+              onRecordingComplete={async (blob) => {
+
+                if (isProcessing)
+                  return;
+
+                if (!sourceLanguage) {
+
+                  setStatus(
+                    "Select source language first"
+                  );
+
+                  return;
+
+                }
+
+                setIsProcessing(
+                  true
+                );
+
+                try {
+
+                  setStatus(
+                    "Translating..."
+                  );
+
+                  setAudioUrl(
+                    null
+                  );
+
+                  const data =
+                    await sendAudio(
+                      blob,
+                      sourceLanguage,
+                      targetLanguage
+                    );
+
+                  console.log(
+                    "Backend response:",
+                    data
+                  );
+
+                  setHistory((prev) => [
+
+                    {
+                      original:
+                        data.original,
+
+                      translated:
+                        data.translated,
+
+                      time:
+                        new Date()
+                          .toLocaleTimeString(
+                            [],
+                            {
+                              hour: "numeric",
+                              minute: "2-digit"
+                            }
+                          )
+                    },
+
+                    ...prev
+
+                  ].slice(0, 20));
+
+                  const url =
+                    "http://127.0.0.1:8000" +
+                    data.audio_url;
+
+                  setAudioUrl(
+                    url
+                  );
+
+                  const audio =
+                    new Audio(
+                      url
+                    );
+
+                  audio
+                    .play()
+                    .catch(
+                      console.error
+                    );
+
+                  setStatus(
+                    "Translation Ready"
+                  );
+
+                } catch (error) {
+
+                  console.error(
+                    "Translation error:",
+                    error
+                  );
+
+                  setStatus(
+                    "Failed"
+                  );
+
+                } finally {
+
+                  setIsProcessing(
+                    false
+                  );
+
+                }
+
+              }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+
+          </div>
+
+          <p className="text-center mt-6 text-slate-400">
+
+            {
+              isProcessing
+                ? "Translating..."
+                : status
+            }
+
+          </p>
+
+          <div
+            className="
+            mt-12
+            space-y-4
+            max-h-[500px]
+            overflow-y-auto
+            pr-2
+            "
           >
-            Documentation
-          </a>
+
+            {history.length === 0 ? (
+
+              <div
+                className="
+                text-center
+                text-slate-500
+                py-12
+                "
+              >
+                Start speaking to begin a conversation
+              </div>
+
+            ) : (
+
+              history.map(
+                (item, index) => (
+
+                  <div
+                    key={`${item.time}-${index}`}
+                    className="
+                    bg-slate-950/50
+                    border
+                    border-slate-800
+                    rounded-3xl
+                    p-5
+                    "
+                  >
+
+                    <p
+                      className="
+                      text-xs
+                      uppercase
+                      tracking-widest
+                      text-indigo-400
+                      "
+                    >
+                      YOU SAID
+                    </p>
+
+                    <p className="mt-2">
+                      {item.original}
+                    </p>
+
+                    <p
+                      className="
+                      text-xs
+                      text-slate-500
+                      mt-2
+                      "
+                    >
+                      {item.time}
+                    </p>
+
+                    <div className="h-px bg-slate-800 my-4" />
+
+                    <p
+                      className="
+                      text-xs
+                      uppercase
+                      tracking-widest
+                      text-green-400
+                      "
+                    >
+                      THEY HEAR
+                    </p>
+
+                    <p className="mt-2">
+                      {item.translated}
+                    </p>
+
+                  </div>
+
+                )
+              )
+
+            )}
+
+          </div>
+
+          <div
+            className="
+            mt-6
+            bg-slate-950/60
+            border
+            border-slate-800
+            rounded-[28px]
+            p-5
+            "
+          >
+
+            <p
+              className="
+              text-slate-500
+              text-xs
+              tracking-[0.25em]
+              uppercase
+              "
+            >
+              AUDIO
+            </p>
+
+            {audioUrl && (
+
+              <button
+                onClick={
+                  replayAudio
+                }
+                className="
+                w-full
+                mt-4
+                py-3
+                rounded-2xl
+                bg-slate-800
+                hover:bg-slate-700
+                transition
+                "
+              >
+                ▶ Replay Translation
+              </button>
+
+            )}
+
+          </div>
+
         </div>
-      </main>
-    </div>
+
+      </section>
+
+    </main>
   );
 }
