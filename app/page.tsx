@@ -7,6 +7,9 @@ import LanguagePicker from "@/components/LanguagePicker";
 import MicButton from "@/components/MicButton";
 import { sendAudio } from "@/lib/api";
 
+const BACKEND_URL =
+  "https://ispeak-backend-production-d877.up.railway.app";
+
 const LANGUAGE_NAMES = {
   "": "Select Language",
   auto: "Auto Detect",
@@ -232,23 +235,37 @@ export default function Home() {
                   ].slice(0, 20));
 
                   const url =
-                    "http://127.0.0.1:8000" +
+                    "https://ispeak-backend-production-d877.up.railway.app" +
                     data.audio_url;
 
-                  setAudioUrl(
+                  console.log(
+                    "Audio URL:",
                     url
                   );
 
-                  const audio =
-                    new Audio(
-                      url
-                    );
+                  setAudioUrl( 
+                    url
+                  );
 
-                  audio
-                    .play()
-                    .catch(
-                      console.error
-                    );
+                const audio =
+                  new Audio(
+                    url
+                  );
+
+                audio.volume = 1;
+
+                audio
+                  .play()
+                  .catch(
+                    (err) => {
+
+                      console.error(
+                        "Audio autoplay failed:",
+                        err
+                      );
+
+                    }
+                  );
 
                   setStatus(
                     "Translation Ready"
