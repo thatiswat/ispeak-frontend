@@ -1,117 +1,99 @@
 import Link from "next/link";
 import Logo from "@/components/Logo";
 
-export default function NativeeHome() {
+const modes = [
+  {
+    title: "Connect",
+    desc: "Speak once. Hear translation instantly.",
+    href: "/connect",
+  },
+  {
+    title: "Converse",
+    desc: "Live two-way conversation.",
+    href: "/converse",
+  },
+  {
+    title: "Call",
+    desc: "Real-time translated calls.",
+    soon: true,
+  },
+  {
+    title: "Chat",
+    desc: "Cross-language messaging.",
+    soon: true,
+  },
+];
+
+export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#F8F9FC]">
-      <div className="max-w-5xl mx-auto px-6 py-16">
+      <div className="absolute top-8 left-8">
+        <Logo className="text-3xl" />
+      </div>
 
-        <Logo />
+      <div className="flex min-h-screen items-center justify-center px-6">
+        <div className="w-full max-w-5xl">
 
-        <div className="mt-20">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#1747FF]">
-            Nativee
-          </p>
+          <div className="text-center mb-12">
+            <h1 className="text-5xl font-bold tracking-tight text-[#060814]">
+              Choose Mode
+            </h1>
 
-          <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-tight">
-            Choose how you
-            <br />
-            want to communicate.
-          </h1>
-
-          <p className="mt-6 text-xl text-zinc-500 max-w-2xl">
-            One platform for speaking across languages.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mt-16">
-
-          <Link
-            href="/connect"
-            className="
-              bg-white
-              border
-              rounded-[32px]
-              p-10
-              hover:shadow-xl
-              transition
-            "
-          >
-            <div className="text-5xl">🎤</div>
-
-            <h2 className="mt-6 text-4xl font-bold">
-              Connect
-            </h2>
-
-            <p className="mt-4 text-zinc-500 text-lg">
-              Speak once. Hear translation instantly.
-            </p>
-          </Link>
-
-          <Link
-            href="/converse"
-            className="
-              bg-white
-              border
-              rounded-[32px]
-              p-10
-              hover:shadow-xl
-              transition
-            "
-          >
-            <div className="text-5xl">💬</div>
-
-            <h2 className="mt-6 text-4xl font-bold">
-              Converse
-            </h2>
-
-            <p className="mt-4 text-zinc-500 text-lg">
-              Live two-way conversation.
-            </p>
-          </Link>
-
-          <div
-            className="
-              bg-white
-              border
-              rounded-[32px]
-              p-10
-              opacity-50
-            "
-          >
-            <div className="text-5xl">📞</div>
-
-            <h2 className="mt-6 text-4xl font-bold">
-              Call
-            </h2>
-
-            <p className="mt-4 text-zinc-500 text-lg">
-              Coming soon.
+            <p className="mt-3 text-lg text-zinc-500">
+              How would you like to communicate?
             </p>
           </div>
 
-          <div
-            className="
-              bg-white
-              border
-              rounded-[32px]
-              p-10
-              opacity-50
-            "
-          >
-            <div className="text-5xl">✉️</div>
+          <div className="grid grid-cols-2 gap-6">
+            {modes.map((mode) => {
+              const card = (
+                <div
+                  className={`
+                    rounded-[32px]
+                    border border-zinc-200
+                    bg-white
+                    p-8
+                    transition-all
+                    hover:-translate-y-1
+                    hover:shadow-[0_20px_60px_rgba(0,0,0,0.08)]
+                    ${mode.soon ? "opacity-60" : ""}
+                  `}
+                >
+                  <div className="flex items-start justify-between">
+                    <div>
+                      <h2 className="text-3xl font-semibold">
+                        {mode.title}
+                      </h2>
 
-            <h2 className="mt-6 text-4xl font-bold">
-              Chat
-            </h2>
+                      <p className="mt-3 text-zinc-500">
+                        {mode.desc}
+                      </p>
+                    </div>
 
-            <p className="mt-4 text-zinc-500 text-lg">
-              Coming soon.
-            </p>
+                    {mode.soon ? (
+                      <span className="rounded-full bg-zinc-100 px-3 py-1 text-xs">
+                        Soon
+                      </span>
+                    ) : (
+                      <span className="text-[#2D52FF] text-2xl">
+                        →
+                      </span>
+                    )}
+                  </div>
+                </div>
+              );
+
+              return mode.href ? (
+                <Link key={mode.title} href={mode.href}>
+                  {card}
+                </Link>
+              ) : (
+                <div key={mode.title}>{card}</div>
+              );
+            })}
           </div>
 
         </div>
-
       </div>
     </main>
   );
