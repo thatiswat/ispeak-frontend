@@ -32,7 +32,7 @@ export default function Languages() {
       <div className="max-w-7xl mx-auto px-6">
 
         <h2 className="text-5xl md:text-6xl font-black tracking-tight">
-          आपकी भाषा में · In your language
+          In your language
         </h2>
 
         <p className="mt-6 text-xl text-zinc-500 max-w-4xl">
