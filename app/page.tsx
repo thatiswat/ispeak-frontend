@@ -12,16 +12,16 @@ export default function Home() {
     <>
       <Navbar />
 
-      {/* Hero */}
+      {/* Nativee Vision */}
       <Hero />
 
-      {/* What Nativee is */}
+      {/* Nativee Products */}
       <Platform />
 
-      {/* Build with Nativee */}
+      {/* How Nativee Works */}
       <Developer />
 
-      {/* Scale with Nativee */}
+      {/* Who Nativee Is For */}
       <Enterprise />
 
       {/* Final Call To Action */}

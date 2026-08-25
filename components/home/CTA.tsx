@@ -2,40 +2,33 @@ import Link from "next/link";
 
 export default function CTA() {
   return (
-    <section className="bg-[#1747FF] py-32">
-      <div className="mx-auto max-w-5xl px-8 text-center">
+    <section className="bg-[#1747FF] py-24">
+      <div className="mx-auto max-w-4xl px-8 text-center">
 
-        <p className="text-sm font-semibold uppercase tracking-[0.35em] text-blue-100">
-          START BUILDING TODAY
-        </p>
-
-        <h2 className="mt-6 text-6xl font-black leading-tight text-white">
-          Ready to build
+        <h2 className="text-5xl font-black leading-tight tracking-[-0.03em] text-white md:text-6xl">
+          Speak your language.
           <br />
-          without language barriers?
+          Be understood by anyone.
         </h2>
 
-        <p className="mx-auto mt-8 max-w-2xl text-xl leading-9 text-blue-100">
-          Integrate speech recognition, translation and
-          multilingual communication into your product in minutes.
+        <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-blue-100">
+          Connect, converse and chat across languages with Nativee.
         </p>
 
-        <div className="mt-14 flex flex-col justify-center gap-5 sm:flex-row">
-
+        <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
           <Link
-            href="https://console.nativee.in"
-            className="rounded-2xl bg-white px-8 py-4 text-lg font-semibold text-[#1747FF] transition hover:scale-[1.02]"
+            href="https://app.nativee.in"
+            className="rounded-2xl bg-white px-8 py-4 font-semibold text-[#1747FF] transition-transform duration-200 hover:scale-[1.02]"
           >
-            Get API Key
+            Get Started
           </Link>
 
           <Link
-            href="https://developer.nativee.in"
-            className="rounded-2xl border border-blue-200 px-8 py-4 text-lg font-semibold text-white transition hover:bg-white/10"
+            href="#products"
+            className="rounded-2xl border border-white/30 px-8 py-4 font-semibold text-white transition-colors duration-200 hover:bg-white/10"
           >
-            Read Documentation
+            Explore Nativee
           </Link>
-
         </div>
 
       </div>

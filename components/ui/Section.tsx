@@ -4,12 +4,14 @@ interface SectionProps {
   children: ReactNode;
   className?: string;
   spacing?: "hero" | "default" | "compact";
+  id?: string;
 }
 
 export default function Section({
   children,
   className = "",
   spacing = "default",
+  id,
 }: SectionProps) {
   const spacingClass = {
     hero: "py-16 lg:py-20",
@@ -19,6 +21,7 @@ export default function Section({
 
   return (
     <section
+      id={id}
       className={`${spacingClass[spacing]} ${className}`}
     >
       {children}

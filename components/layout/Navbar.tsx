@@ -8,23 +8,19 @@ const links = [
     href: "#products",
   },
   {
-    name: "Developers",
-    href: "https://developer.nativee.in",
+    name: "About",
+    href: "#about",
   },
   {
-    name: "Enterprise",
-    href: "#enterprise",
-  },
-  {
-    name: "Pricing",
-    href: "#pricing",
+    name: "Contact",
+    href: "mailto:support@nativee.in",
   },
 ];
 
 export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-8">
+      <div className="relative mx-auto flex h-20 max-w-7xl items-center px-8">
 
         {/* Logo */}
         <Link
@@ -36,7 +32,7 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation */}
-        <nav className="hidden items-center gap-10 lg:flex">
+        <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 lg:flex">
           {links.map((item) => (
             <Link
               key={item.name}
@@ -48,23 +44,14 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Right */}
-        <div className="hidden items-center gap-8 lg:flex">
-
-          <Link
-            href="/login"
-            className="text-[15px] font-medium text-slate-700 transition-colors hover:text-slate-950"
-          >
-            Log in
-          </Link>
-
+        {/* Try Nativee */}
+        <div className="ml-auto hidden lg:block">
           <Link
             href="https://app.nativee.in"
-            className="rounded-2xl bg-[#1747FF] px-7 py-3 font-semibold text-white transition-all duration-200 hover:bg-[#0f3ff5]"
+            className="rounded-2xl bg-[#1747FF] px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f3ff5]"
           >
-            Get API Key
+            Try Nativee
           </Link>
-
         </div>
 
       </div>

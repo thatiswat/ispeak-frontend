@@ -4,24 +4,24 @@ import SectionHeading from "../ui/SectionHeading";
 
 const useCases = [
   {
-    title: "Customer Support",
+    title: "People",
     description:
-      "Deliver multilingual support across voice and chat using Nativee APIs.",
+      "Talk to people who speak different languages without needing to share the same language.",
   },
   {
-    title: "Healthcare",
+    title: "Businesses",
     description:
-      "Help patients and healthcare professionals communicate in their preferred language.",
+      "Communicate naturally with customers across languages through voice, conversations, and chat.",
   },
   {
-    title: "Education",
+    title: "Communities",
     description:
-      "Make learning accessible across India's regional languages.",
+      "Bring people together across India's languages and make communication more inclusive.",
   },
   {
-    title: "Government",
+    title: "Applications",
     description:
-      "Improve citizen services with multilingual communication.",
+      "Build experiences where people can communicate naturally regardless of the language they speak.",
   },
 ];
 
@@ -32,15 +32,15 @@ export default function Enterprise() {
 
         <SectionHeading
           align="center"
-          badge="ENTERPRISE"
+          badge="WHY NATIVEE"
           title={
             <>
-              Built for organizations
+              Communication
               <br />
-              across every industry.
+              without boundaries.
             </>
           }
-          description="Nativee helps enterprises communicate across India's languages through one unified platform for speech recognition, translation and conversational AI."
+          description="Nativee is built for anyone who needs to communicate across languages—from everyday conversations to businesses and the applications that connect us."
         />
 
         <div className="mt-20 overflow-hidden rounded-3xl border border-slate-200 bg-white">
@@ -52,6 +52,7 @@ export default function Enterprise() {
                 key={item.title}
                 className="group flex flex-col p-10 transition-all duration-300 hover:bg-slate-50"
               >
+
                 {/* Number */}
 
                 <span className="text-xs font-semibold tracking-[0.35em] text-[#1747FF]">
@@ -75,7 +76,7 @@ export default function Enterprise() {
                 <div className="mt-10 flex items-center justify-between border-t border-slate-200 pt-6">
 
                   <span className="text-sm font-medium text-slate-500">
-                    Enterprise
+                    Nativee
                   </span>
 
                   <span className="text-xl text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#1747FF]">

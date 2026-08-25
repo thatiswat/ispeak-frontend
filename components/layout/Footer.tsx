@@ -2,46 +2,46 @@ import Link from "next/link";
 
 const productLinks = [
   {
-    name: "Translation API",
-    href: "https://api.nativee.in/docs#/Translation",
+    name: "Connect",
+    href: "https://app.nativee.in",
   },
   {
-    name: "Speech API",
-    href: "https://api.nativee.in/docs#/Speech",
+    name: "Converse",
+    href: "https://app.nativee.in",
   },
   {
-    name: "Conversation API",
-    href: "https://api.nativee.in/docs#/Speech/conversation_v1_conversation_post",
-  },
-];
-
-const developerLinks = [
-  {
-    name: "Documentation",
-    href: "https://developer.nativee.in",
+    name: "Chat",
+    href: "https://app.nativee.in",
   },
   {
-    name: "API Reference",
-    href: "https://api.nativee.in/docs",
-  },
-  {
-    name: "Status",
-    href: "https://status.nativee.in",
+    name: "Call",
+    href: "#",
   },
 ];
 
 const companyLinks = [
   {
     name: "About",
-    href: "#",
-  },
-  {
-    name: "Enterprise",
-    href: "#enterprise",
+    href: "#about",
   },
   {
     name: "Contact",
     href: "mailto:support@nativee.in",
+  },
+];
+
+const exploreLinks = [
+  {
+    name: "Try Nativee",
+    href: "https://app.nativee.in",
+  },
+  {
+    name: "Products",
+    href: "#products",
+  },
+  {
+    name: "Status",
+    href: "https://status.nativee.in",
   },
 ];
 
@@ -69,28 +69,27 @@ export default function Footer() {
             </Link>
 
             <p className="mt-8 max-w-md text-lg leading-8 text-slate-400">
-              AI Language Platform for Indian languages.
-              Build multilingual applications with speech,
-              translation and conversation APIs designed for
-              developers and enterprises.
+              The communication layer for a multilingual world.
+              Nativee connects people across languages through
+              voice, conversations, calls and chat.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
 
               <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300">
-                REST APIs
+                Connect
               </span>
 
               <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300">
-                Speech
+                Converse
               </span>
 
               <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300">
-                Translation
+                Chat
               </span>
 
               <span className="rounded-full border border-white/10 px-4 py-2 text-sm text-slate-300">
-                Enterprise
+                Call
               </span>
 
             </div>
@@ -99,7 +98,7 @@ export default function Footer() {
 
           {/* Navigation */}
 
-          <div className="lg:col-span-7 grid gap-12 sm:grid-cols-3">
+          <div className="grid gap-12 sm:grid-cols-3 lg:col-span-7">
 
             <FooterColumn
               title="Products"
@@ -107,13 +106,13 @@ export default function Footer() {
             />
 
             <FooterColumn
-              title="Developers"
-              links={developerLinks}
+              title="Company"
+              links={companyLinks}
             />
 
             <FooterColumn
-              title="Company"
-              links={companyLinks}
+              title="Explore"
+              links={exploreLinks}
             />
 
           </div>
@@ -129,7 +128,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
 
           <p>
-            © 2026 Nativee Technologies. All rights reserved.
+            © 2026 Nativee Company. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-8">

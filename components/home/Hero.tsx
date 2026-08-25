@@ -5,11 +5,11 @@ import Section from "../ui/Section";
 
 export default function Hero() {
   return (
-    <Section className="bg-white border-b border-slate-200">
+    <Section className="border-b border-slate-200 bg-white">
       <Container>
 
         <HeroHeading
-          badge="AI LANGUAGE PLATFORM"
+          badge="WE CAN TALK."
           title={
             <>
               Build for every
@@ -17,33 +17,33 @@ export default function Hero() {
               language in India.
             </>
           }
-          description="Speech recognition, translation and conversation APIs for developers and enterprises building multilingual products across India's languages."
+          description="Nativee makes communication possible across languages, connecting people through voice, conversations, calls and chat."
         />
 
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
 
           <Button href="https://app.nativee.in">
-            Get API Key
+            Get Started
           </Button>
 
           <Button
-            href="https://developer.nativee.in"
+            href="#products"
             variant="secondary"
           >
-            Read Documentation
+            Explore Nativee
           </Button>
 
         </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm font-medium text-slate-500">
 
-          <span>22+ Indian Languages</span>
+          <span>Connect</span>
 
-          <span>REST APIs</span>
+          <span>Converse</span>
 
-          <span>Official SDKs</span>
+          <span>Chat</span>
 
-          <span>Enterprise Ready</span>
+          <span>Call</span>
 
         </div>
 
