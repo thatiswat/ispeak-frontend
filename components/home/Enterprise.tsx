@@ -2,26 +2,30 @@ import Container from "../ui/Container";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
 
-const useCases = [
+const visionPoints = [
   {
+    number: "01",
     title: "People",
     description:
-      "Talk to people who speak different languages without needing to share the same language.",
+      "Speak naturally with anyone, even when you don't share the same language.",
   },
   {
+    number: "02",
     title: "Businesses",
     description:
-      "Communicate naturally with customers across languages through voice, conversations, and chat.",
+      "Reach and serve customers across languages without making language a barrier.",
   },
   {
+    number: "03",
     title: "Communities",
     description:
-      "Bring people together across India's languages and make communication more inclusive.",
+      "Bring people together across India's many languages and cultures.",
   },
   {
-    title: "Applications",
+    number: "04",
+    title: "Every connection",
     description:
-      "Build experiences where people can communicate naturally regardless of the language they speak.",
+      "Make language invisible wherever people communicate, connect, and understand.",
   },
 ];
 
@@ -30,58 +34,79 @@ export default function Enterprise() {
     <Section spacing="default" className="bg-slate-50">
       <Container>
 
-        <SectionHeading
-          align="center"
-          badge="WHY NATIVEE"
-          title={
-            <>
-              Communication
-              <br />
-              without boundaries.
-            </>
-          }
-          description="Nativee is built for anyone who needs to communicate across languages—from everyday conversations to businesses and the applications that connect us."
-        />
+        {/* Vision */}
 
-        <div className="mt-20 overflow-hidden rounded-3xl border border-slate-200 bg-white">
+        <div className="mx-auto max-w-4xl text-center">
 
-          <div className="grid grid-cols-1 divide-y divide-slate-200 lg:grid-cols-4 lg:divide-x lg:divide-y-0">
+          <SectionHeading
+            align="center"
+            badge="OUR VISION"
+            title={
+              <>
+                Language should never decide
+                <br />
+                who you can talk to.
+              </>
+            }
+            description="Nativee is building a world where people can communicate naturally across languages—starting with India and extending everywhere."
+          />
 
-            {useCases.map((item, index) => (
+        </div>
+
+        {/* Vision principles */}
+
+        <div className="relative mt-16">
+
+          {/* Connecting line */}
+
+          <div
+            aria-hidden="true"
+            className="absolute left-0 right-0 top-[57px] hidden h-px bg-slate-200 lg:block"
+          />
+
+          <div className="relative grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+
+            {visionPoints.map((item) => (
               <article
-                key={item.title}
-                className="group flex flex-col p-10 transition-all duration-300 hover:bg-slate-50"
+                key={item.number}
+                className="group relative flex min-h-[270px] flex-col rounded-[28px] border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-[0_20px_45px_-28px_rgba(23,71,255,0.35)]"
               >
 
                 {/* Number */}
 
-                <span className="text-xs font-semibold tracking-[0.35em] text-[#1747FF]">
-                  0{index + 1}
-                </span>
+                <div className="flex items-center justify-between">
 
-                {/* Title */}
-
-                <h3 className="mt-6 text-2xl font-bold leading-tight text-slate-950 transition-colors duration-300 group-hover:text-[#1747FF]">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-
-                <p className="mt-5 flex-1 text-base leading-7 text-slate-600">
-                  {item.description}
-                </p>
-
-                {/* Footer */}
-
-                <div className="mt-10 flex items-center justify-between border-t border-slate-200 pt-6">
-
-                  <span className="text-sm font-medium text-slate-500">
-                    Nativee
+                  <span className="text-xs font-bold tracking-[0.25em] text-[#1747FF]">
+                    {item.number}
                   </span>
 
-                  <span className="text-xl text-slate-300 transition-all duration-300 group-hover:translate-x-1 group-hover:text-[#1747FF]">
-                    →
-                  </span>
+                  <span className="flex h-2 w-2 rounded-full bg-slate-200 transition-colors duration-300 group-hover:bg-[#1747FF]" />
+
+                </div>
+
+                {/* Divider */}
+
+                <div className="mt-7 h-px bg-slate-100" />
+
+                {/* Content */}
+
+                <div className="mt-7">
+
+                  <h3 className="text-2xl font-bold tracking-[-0.025em] text-slate-950">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-slate-600">
+                    {item.description}
+                  </p>
+
+                </div>
+
+                {/* Bottom accent */}
+
+                <div className="mt-auto pt-8">
+
+                  <div className="h-1 w-8 rounded-full bg-slate-200 transition-all duration-300 group-hover:w-12 group-hover:bg-[#1747FF]" />
 
                 </div>
 
@@ -89,6 +114,23 @@ export default function Enterprise() {
             ))}
 
           </div>
+        </div>
+
+        {/* Closing statement */}
+
+        <div className="mx-auto mt-20 max-w-4xl text-center">
+
+          <div className="mx-auto mb-8 h-px w-12 bg-[#1747FF]" />
+
+          <p className="text-2xl font-semibold leading-relaxed tracking-[-0.025em] text-slate-900 md:text-3xl">
+            We believe communication should feel natural,
+            <br className="hidden md:block" />
+            no matter what language you speak.
+          </p>
+
+          <p className="mt-5 text-sm font-medium text-slate-500">
+            That is what Nativee is building.
+          </p>
 
         </div>
 

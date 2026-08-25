@@ -5,50 +5,50 @@ import SectionHeading from "../ui/SectionHeading";
 
 const features = [
   {
-    status: "Available Today",
+    status: "AVAILABLE TODAY",
     title: "Connect",
     description:
-      "Connect with people across languages and communicate naturally without sharing the same language.",
+      "Speak naturally with someone who speaks another language. Nativee bridges the conversation in real time.",
     features: [
-      "Multilingual Communication",
-      "Voice",
+      "Voice Communication",
       "Real-Time Translation",
+      "Multiple Languages",
       "Cross-Language Conversations",
     ],
     href: "https://app.nativee.in",
-    cta: "Get Started",
+    cta: "Try Connect",
     featured: true,
   },
   {
-    status: "Available Today",
+    status: "AVAILABLE TODAY",
     title: "Converse",
     description:
-      "Have natural conversations across languages with Nativee bridging the communication gap in real time.",
+      "Have natural two-way conversations while each person speaks in the language they are most comfortable with.",
     features: [
       "Live Conversations",
-      "Multiple Languages",
-      "Voice Communication",
+      "Two-Way Communication",
       "Real-Time Translation",
+      "Multiple Languages",
     ],
     href: "https://app.nativee.in",
-    cta: "Get Started",
+    cta: "Try Converse",
   },
   {
-    status: "Available Today",
+    status: "AVAILABLE TODAY",
     title: "Chat",
     description:
-      "Message naturally across languages while Nativee helps everyone understand the conversation.",
+      "Message across languages while Nativee keeps the conversation understandable for everyone.",
     features: [
       "Multilingual Messaging",
-      "Real-Time Translation",
-      "Group Conversations",
-      "Cross-Language Chat",
+      "Automatic Translation",
+      "Original + Translated Messages",
+      "Voice Messages",
     ],
     href: "https://app.nativee.in",
-    cta: "Get Started",
+    cta: "Try Chat",
   },
   {
-    status: "Coming Soon",
+    status: "COMING SOON",
     title: "Call",
     description:
       "Talk across languages through voice calls without requiring everyone to speak the same language.",
@@ -67,60 +67,86 @@ export default function Platform() {
   return (
     <Section
       id="products"
-      spacing="default"
-      className="bg-white"
+      spacing="compact"
+      className="bg-white !py-12 lg:!py-14"
     >
       <Container>
-        <SectionHeading
-          align="center"
-          badge="NATIVEE MOBILE"
-          title={
-            <>
-              One app.
-              <br />
-              Communication without barriers.
-            </>
-          }
-          description="Nativee brings voice, conversations, chat and calls together in one multilingual communication experience."
-        />
 
-        <div className="mt-16 grid gap-8 xl:grid-cols-4">
+        {/* Section heading */}
+
+        <div className="mx-auto max-w-4xl text-center">
+          <SectionHeading
+            align="center"
+            badge="NATIVEE MOBILE"
+            title={
+              <>
+                One app.
+                <br />
+                Four ways to communicate.
+              </>
+            }
+            description={
+              "Connect, converse, chat and call across languages—all within the Nativee experience."
+            }
+          />
+        </div>
+
+        {/* Product cards */}
+
+        <div className="mt-10 grid gap-5 xl:grid-cols-4">
+
           {features.map((feature) => (
             <article
               key={feature.title}
-              className={`group flex h-full flex-col rounded-3xl border p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl ${
+              className={`group flex min-h-[430px] flex-col rounded-[24px] border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
                 feature.featured
                   ? "border-blue-200 bg-blue-50/40"
                   : "border-slate-200 bg-white"
               }`}
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.28em] text-blue-600">
+
+              {/* Status */}
+
+              <span className="text-[10px] font-bold uppercase tracking-[0.26em] text-[#1747FF]">
                 {feature.status}
               </span>
 
-              <h3 className="mt-6 text-3xl font-black text-slate-950">
+              {/* Title */}
+
+              <h3 className="mt-4 text-[27px] font-black leading-none tracking-[-0.04em] text-slate-950">
                 {feature.title}
               </h3>
 
-              <p className="mt-5 flex-1 text-base leading-8 text-slate-600">
+              {/* Description */}
+
+              <p className="mt-4 min-h-[72px] text-[14px] leading-6 text-slate-600">
                 {feature.description}
               </p>
 
-              <div className="my-8 h-px bg-slate-200" />
+              {/* Divider */}
 
-              <ul className="space-y-4">
+              <div className="my-4 h-px bg-slate-200" />
+
+              {/* Features */}
+
+              <ul className="space-y-2.5">
                 {feature.features.map((item) => (
                   <li
                     key={item}
-                    className="flex items-center gap-3 text-sm text-slate-700"
+                    className="flex items-start gap-2.5 text-[13px] leading-5 text-slate-700"
                   >
-                    <span className="text-blue-600">✓</span>
+                    <span className="mt-0.5 shrink-0 font-bold text-[#1747FF]">
+                      ✓
+                    </span>
+
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-10">
+              {/* CTA */}
+
+              <div className="mt-auto pt-5">
                 <Button
                   href={feature.href}
                   variant={feature.featured ? "primary" : "secondary"}
@@ -128,9 +154,12 @@ export default function Platform() {
                   {feature.cta}
                 </Button>
               </div>
+
             </article>
           ))}
+
         </div>
+
       </Container>
     </Section>
   );

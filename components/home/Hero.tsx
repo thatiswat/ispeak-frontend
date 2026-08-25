@@ -12,18 +12,17 @@ export default function Hero() {
           badge="WE CAN TALK."
           title={
             <>
-              Build for every
+              Built for every
               <br />
-              language in India.
+              Indian language.
             </>
           }
-          description="Nativee makes communication possible across languages, connecting people through voice, conversations, calls and chat."
+          description="Nativee helps people speak, understand and connect across languages through voice, conversations, chat and calls."
         />
 
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-
           <Button href="https://app.nativee.in">
-            Get Started
+            Try Nativee
           </Button>
 
           <Button
@@ -32,19 +31,13 @@ export default function Hero() {
           >
             Explore Nativee
           </Button>
-
         </div>
 
         <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm font-medium text-slate-500">
-
           <span>Connect</span>
-
           <span>Converse</span>
-
           <span>Chat</span>
-
           <span>Call</span>
-
         </div>
 
       </Container>
