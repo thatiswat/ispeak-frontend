@@ -52,6 +52,26 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://www.nativee.in/#website",
+      name: "Nativee",
+      url: "https://www.nativee.in/",
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.nativee.in/#organization",
+      name: "Nativee",
+      url: "https://www.nativee.in/",
+      description:
+        "AI communication infrastructure for speech recognition, translation, and real-time multilingual communication.",
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -62,6 +82,15 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${playfair.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
+      </head>
+
       <body className="font-[family-name:var(--font-inter)]">
         {children}
       </body>
