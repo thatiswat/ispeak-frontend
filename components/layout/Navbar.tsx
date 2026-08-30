@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 
 const links = [
   {
@@ -19,16 +20,19 @@ const links = [
 
 export default function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
+    <header className="border-b border-slate-200 bg-white/90 backdrop-blur-xl">
       <div className="relative mx-auto flex h-20 max-w-7xl items-center px-8">
 
         {/* Logo */}
         <Link
           href="/"
-          className="text-[34px] font-black tracking-[-0.04em] text-slate-950"
+          aria-label="Nativee home"
+          className="shrink-0"
         >
-          Native
-          <span className="text-[#1747FF]">e</span>
+          <Logo
+            className="text-[34px]"
+            variant="light"
+          />
         </Link>
 
         {/* Navigation */}

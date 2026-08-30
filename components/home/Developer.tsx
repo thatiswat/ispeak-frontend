@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Container from "../ui/Container";
 import Section from "../ui/Section";
 import SectionHeading from "../ui/SectionHeading";
@@ -105,6 +107,7 @@ export default function Developer() {
               xl:left-2
             "
           >
+
             <div className="flex items-start gap-3">
 
               <span
@@ -537,36 +540,59 @@ export default function Developer() {
 
                   <div className="flex items-center justify-between">
 
-                    <div className="min-w-0">
+                    {/* Nativee app identity + Connect */}
 
-                      <h3
-                        className="
-                          text-[20px]
-                          font-black
-                          leading-none
-                          tracking-[-0.04em]
-                          text-slate-950
-                        "
-                      >
-                        Connect
-                      </h3>
+                    <div className="flex min-w-0 items-center gap-2.5">
 
-                      <p
+                      {/* Nativee App Icon */}
+
+                      <Image
+                        src="/nativee-icon.png"
+                        alt="Nativee"
+                        width={30}
+                        height={30}
                         className="
-                          mt-1
-                          text-[9px]
-                          font-medium
-                          leading-none
-                          text-slate-500
+                          h-[30px]
+                          w-[30px]
+                          shrink-0
+                          rounded-[9px]
                         "
-                      >
-                        Understand{" "}
-                        <span className="text-[#3563FF]">
-                          anything.
-                        </span>
-                      </p>
+                      />
+
+                      <div className="min-w-0">
+
+                        <h3
+                          className="
+                            text-[20px]
+                            font-black
+                            leading-none
+                            tracking-[-0.04em]
+                            text-slate-950
+                          "
+                        >
+                          Connect
+                        </h3>
+
+                        <p
+                          className="
+                            mt-1
+                            text-[9px]
+                            font-medium
+                            leading-none
+                            text-slate-500
+                          "
+                        >
+                          Understand{" "}
+                          <span className="text-[#3563FF]">
+                            anything.
+                          </span>
+                        </p>
+
+                      </div>
 
                     </div>
+
+                    {/* More options */}
 
                     <button
                       type="button"

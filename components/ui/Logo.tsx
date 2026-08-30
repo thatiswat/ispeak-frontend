@@ -1,29 +1,39 @@
 type LogoProps = {
   className?: string;
+  variant?: "light" | "dark";
 };
 
 export default function Logo({
   className = "",
+  variant = "light",
 }: LogoProps) {
   return (
-    <h1
+    <span
       className={`
-        font-[family-name:var(--font-inter)]
-        font-extrabold
+        inline-block
+        font-[family-name:var(--font-poppins)]
+        font-bold
         leading-none
-        tracking-[-0.055em]
+        tracking-[-0.02em]
         whitespace-nowrap
         select-none
         ${className}
       `}
+      aria-label="Nativee"
     >
-      <span className="text-[var(--nativee-dark)] dark:text-white">
-        Native
+      <span
+        className={
+          variant === "dark"
+            ? "text-white"
+            : "text-[var(--nativee-dark)]"
+        }
+      >
+        Nativ
       </span>
 
       <span className="text-[var(--nativee-blue)]">
-        e
+        ee
       </span>
-    </h1>
+    </span>
   );
 }

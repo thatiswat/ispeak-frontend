@@ -5,7 +5,10 @@ import Section from "../ui/Section";
 
 export default function Hero() {
   return (
-    <Section className="border-b border-slate-200 bg-white">
+    <Section
+      spacing="hero"
+      className="border-b border-slate-200 bg-white"
+    >
       <Container>
 
         <HeroHeading

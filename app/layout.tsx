@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import {
+  Inter,
+  Playfair_Display,
+  Poppins,
+} from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +15,12 @@ const inter = Inter({
 const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-playfair",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -112,7 +122,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable}`}
+      className={`${inter.variable} ${playfair.variable} ${poppins.variable}`}
     >
       <head>
         <script

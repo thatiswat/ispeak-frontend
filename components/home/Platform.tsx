@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import Button from "../ui/Button";
 import Container from "../ui/Container";
 import Section from "../ui/Section";
@@ -75,6 +77,21 @@ export default function Platform() {
         {/* Section heading */}
 
         <div className="mx-auto max-w-4xl text-center">
+
+          {/* Nativee App Identity */}
+
+          <div className="mb-6 flex justify-center">
+            <div className="overflow-hidden rounded-[20px] shadow-sm ring-1 ring-slate-200">
+              <Image
+                src="/nativee-icon.png"
+                alt="Nativee app"
+                width={72}
+                height={72}
+                className="h-[72px] w-[72px]"
+              />
+            </div>
+          </div>
+
           <SectionHeading
             align="center"
             badge="NATIVEE MOBILE"
@@ -89,6 +106,7 @@ export default function Platform() {
               "Connect, converse, chat and call across languages—all within the Nativee experience."
             }
           />
+
         </div>
 
         {/* Product cards */}

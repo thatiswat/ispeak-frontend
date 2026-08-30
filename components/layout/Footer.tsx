@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 
 const productLinks = [
   {
@@ -51,21 +52,20 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-8 py-24">
 
         {/* Top */}
-
         <div className="grid gap-20 lg:grid-cols-12">
 
           {/* Brand */}
-
           <div className="lg:col-span-5">
 
             <Link
               href="/"
+              aria-label="Nativee home"
               className="inline-block"
             >
-              <h2 className="text-4xl font-black tracking-tight">
-                Native
-                <span className="text-[#2563EB]">e</span>
-              </h2>
+              <Logo
+                className="text-4xl"
+                variant="dark"
+              />
             </Link>
 
             <p className="mt-8 max-w-md text-lg leading-8 text-slate-400">
@@ -97,7 +97,6 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-
           <div className="grid gap-12 sm:grid-cols-3 lg:col-span-7">
 
             <FooterColumn
@@ -120,11 +119,9 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-
         <div className="my-16 h-px bg-white/10" />
 
         {/* Bottom */}
-
         <div className="flex flex-col gap-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
 
           <p>

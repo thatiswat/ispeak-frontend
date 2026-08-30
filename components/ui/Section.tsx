@@ -14,7 +14,7 @@ export default function Section({
   id,
 }: SectionProps) {
   const spacingClass = {
-    hero: "py-25 lg:py-29",
+    hero: "py-28 lg:py-32",
     default: "py-17 lg:py-21",
     compact: "py-12 lg:py-15",
   };
