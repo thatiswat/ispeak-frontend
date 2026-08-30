@@ -22,12 +22,26 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Nativee is AI communication infrastructure for speech recognition, translation, and real-time multilingual communication.",
+    "Nativee is AI communication infrastructure for multilingual speech recognition, translation, and real-time communication across India's languages.",
 
   applicationName: "Nativee",
 
   alternates: {
     canonical: "https://www.nativee.in/",
+  },
+
+  icons: {
+    icon: [
+      {
+        url: "/favicon.ico",
+        sizes: "any",
+      },
+      {
+        url: "/icon.png",
+        type: "image/png",
+        sizes: "1024x1024",
+      },
+    ],
   },
 
   openGraph: {
@@ -36,19 +50,27 @@ export const metadata: Metadata = {
     siteName: "Nativee",
     title: "Nativee — AI Communication Infrastructure",
     description:
-      "AI communication infrastructure for speech recognition, translation, and real-time multilingual communication.",
+      "AI communication infrastructure for multilingual speech recognition, translation, and real-time communication across India's languages.",
+    locale: "en_IN",
   },
 
   twitter: {
     card: "summary_large_image",
     title: "Nativee — AI Communication Infrastructure",
     description:
-      "AI communication infrastructure for speech recognition, translation, and real-time multilingual communication.",
+      "AI communication infrastructure for multilingual speech recognition, translation, and real-time communication across India's languages.",
   },
 
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -60,14 +82,24 @@ const structuredData = {
       "@id": "https://www.nativee.in/#website",
       name: "Nativee",
       url: "https://www.nativee.in/",
+      inLanguage: "en-IN",
+      publisher: {
+        "@id": "https://www.nativee.in/#organization",
+      },
     },
+
     {
       "@type": "Organization",
       "@id": "https://www.nativee.in/#organization",
       name: "Nativee",
       url: "https://www.nativee.in/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.nativee.in/icon.png",
+      },
+      image: "https://www.nativee.in/icon.png",
       description:
-        "AI communication infrastructure for speech recognition, translation, and real-time multilingual communication.",
+        "Nativee is AI communication infrastructure for multilingual speech recognition, translation, and real-time communication across India's languages.",
     },
   ],
 };
