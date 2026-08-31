@@ -41,17 +41,9 @@ export const metadata: Metadata = {
   },
 
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-        sizes: "any",
-      },
-      {
-        url: "/icon.png",
-        type: "image/png",
-        sizes: "1024x1024",
-      },
-    ],
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
   },
 
   openGraph: {
@@ -97,7 +89,6 @@ const structuredData = {
         "@id": "https://www.nativee.in/#organization",
       },
     },
-
     {
       "@type": "Organization",
       "@id": "https://www.nativee.in/#organization",
