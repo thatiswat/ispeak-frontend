@@ -1,8 +1,3 @@
-Absolutely buddy. The current README is solid in substance, but it is **too repetitive and slightly overclaims in places**. Since this is specifically the `nativee-web` repository, I’d make it more professional, concise, and aligned with the current Nativee positioning.
-
-Here is the **updated `README.md`**:
-
-````markdown
 # Nativee
 
 **AI communication infrastructure for multilingual products.**
