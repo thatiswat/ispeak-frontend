@@ -25,7 +25,7 @@ const features = [
     status: "AVAILABLE TODAY",
     title: "Converse",
     description:
-      "Have natural two-way conversations while each person speaks in the language they are most comfortable with.",
+      "Have natural two-way conversations while each person speaks in their preferred language.",
     features: [
       "Live Conversations",
       "Two-Way Communication",
@@ -70,7 +70,7 @@ export default function Platform() {
     <Section
       id="products"
       spacing="compact"
-      className="bg-white !py-12 lg:!py-14"
+      className="bg-white !py-11 lg:!py-13"
     >
       <Container>
 
@@ -80,14 +80,14 @@ export default function Platform() {
 
           {/* Nativee App Identity */}
 
-          <div className="mb-6 flex justify-center">
-            <div className="overflow-hidden rounded-[20px] shadow-sm ring-1 ring-slate-200">
+          <div className="mb-5 flex justify-center">
+            <div className="overflow-hidden rounded-[19px] shadow-sm ring-1 ring-slate-200">
               <Image
                 src="/nativee-icon.png"
                 alt="Nativee app"
-                width={72}
-                height={72}
-                className="h-[72px] w-[72px]"
+                width={68}
+                height={68}
+                className="h-[68px] w-[68px]"
               />
             </div>
           </div>
@@ -102,21 +102,19 @@ export default function Platform() {
                 Four ways to communicate.
               </>
             }
-            description={
-              "Connect, converse, chat and call across languages—all within the Nativee experience."
-            }
+            description="Connect, converse, chat and call across languages—all within the Nativee experience."
           />
 
         </div>
 
         {/* Product cards */}
 
-        <div className="mt-10 grid gap-5 xl:grid-cols-4">
+        <div className="mt-9 grid gap-5 xl:grid-cols-4">
 
           {features.map((feature) => (
             <article
               key={feature.title}
-              className={`group flex min-h-[430px] flex-col rounded-[24px] border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+              className={`group flex min-h-[408px] flex-col rounded-[24px] border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
                 feature.featured
                   ? "border-blue-200 bg-blue-50/40"
                   : "border-slate-200 bg-white"
@@ -137,7 +135,7 @@ export default function Platform() {
 
               {/* Description */}
 
-              <p className="mt-4 min-h-[72px] text-[14px] leading-6 text-slate-600">
+              <p className="mt-4 min-h-[68px] text-[14px] leading-6 text-slate-600">
                 {feature.description}
               </p>
 
@@ -164,7 +162,7 @@ export default function Platform() {
 
               {/* CTA */}
 
-              <div className="mt-auto pt-5">
+              <div className="mt-auto pt-4">
                 <Button
                   href={feature.href}
                   variant={feature.featured ? "primary" : "secondary"}

@@ -125,7 +125,7 @@ export default function Footer() {
         <div className="flex flex-col gap-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
 
           <p>
-            © 2026 Nativee Company. All rights reserved.
+            © 2026 Nativee. All rights reserved.
           </p>
 
           <div className="flex flex-wrap items-center gap-8">
