@@ -17,7 +17,7 @@ const features = [
       "Multiple Languages",
       "Cross-Language Conversations",
     ],
-    href: "https://app.nativee.in",
+    href: "/launch",
     cta: "Try Connect",
     featured: true,
   },
@@ -32,7 +32,7 @@ const features = [
       "Real-Time Translation",
       "Multiple Languages",
     ],
-    href: "https://app.nativee.in",
+    href: "/launch",
     cta: "Try Converse",
   },
   {
@@ -46,7 +46,7 @@ const features = [
       "Original + Translated Messages",
       "Voice Messages",
     ],
-    href: "https://app.nativee.in",
+    href: "/launch",
     cta: "Try Chat",
   },
   {
@@ -70,7 +70,7 @@ export default function Platform() {
     <Section
       id="products"
       spacing="compact"
-      className="bg-white !py-11 lg:!py-13"
+      className="bg-white !py-10 sm:!py-12 lg:!py-13"
     >
       <Container>
 
@@ -80,14 +80,14 @@ export default function Platform() {
 
           {/* Nativee App Identity */}
 
-          <div className="mb-5 flex justify-center">
-            <div className="overflow-hidden rounded-[19px] shadow-sm ring-1 ring-slate-200">
+          <div className="mb-4 flex justify-center sm:mb-5">
+            <div className="overflow-hidden rounded-[17px] shadow-sm ring-1 ring-slate-200 sm:rounded-[19px]">
               <Image
-                src="/nativee-icon.png"
+                src="/icon.png"
                 alt="Nativee app"
-                width={68}
-                height={68}
-                className="h-[68px] w-[68px]"
+                width={64}
+                height={64}
+                className="h-16 w-16 sm:h-[68px] sm:w-[68px]"
               />
             </div>
           </div>
@@ -109,12 +109,12 @@ export default function Platform() {
 
         {/* Product cards */}
 
-        <div className="mt-9 grid gap-5 xl:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:mt-9 sm:gap-5 xl:grid-cols-4">
 
           {features.map((feature) => (
             <article
               key={feature.title}
-              className={`group flex min-h-[408px] flex-col rounded-[24px] border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${
+              className={`group flex min-h-[390px] flex-col rounded-[22px] border p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg sm:min-h-[408px] sm:rounded-[24px] ${
                 feature.featured
                   ? "border-blue-200 bg-blue-50/40"
                   : "border-slate-200 bg-white"
@@ -123,33 +123,33 @@ export default function Platform() {
 
               {/* Status */}
 
-              <span className="text-[10px] font-bold uppercase tracking-[0.26em] text-[#1747FF]">
+              <span className="text-[9px] font-bold uppercase tracking-[0.24em] text-[#1747FF] sm:text-[10px] sm:tracking-[0.26em]">
                 {feature.status}
               </span>
 
               {/* Title */}
 
-              <h3 className="mt-4 text-[27px] font-black leading-none tracking-[-0.04em] text-slate-950">
+              <h3 className="mt-3 text-[25px] font-black leading-none tracking-[-0.04em] text-slate-950 sm:mt-4 sm:text-[27px]">
                 {feature.title}
               </h3>
 
               {/* Description */}
 
-              <p className="mt-4 min-h-[68px] text-[14px] leading-6 text-slate-600">
+              <p className="mt-3 min-h-0 text-[13px] leading-6 text-slate-600 sm:mt-4 sm:min-h-[68px] sm:text-[14px]">
                 {feature.description}
               </p>
 
               {/* Divider */}
 
-              <div className="my-4 h-px bg-slate-200" />
+              <div className="my-3 h-px bg-slate-200 sm:my-4" />
 
               {/* Features */}
 
-              <ul className="space-y-2.5">
+              <ul className="space-y-2 sm:space-y-2.5">
                 {feature.features.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 text-[13px] leading-5 text-slate-700"
+                    className="flex items-start gap-2.5 text-[12px] leading-5 text-slate-700 sm:text-[13px]"
                   >
                     <span className="mt-0.5 shrink-0 font-bold text-[#1747FF]">
                       ✓

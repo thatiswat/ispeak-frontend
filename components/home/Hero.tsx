@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <Section
       spacing="hero"
-      className="border-b border-slate-200 bg-white"
+      className="border-b border-slate-200 bg-white !py-20 sm:!py-24 lg:!py-28"
     >
       <Container>
 
@@ -16,14 +16,14 @@ export default function Hero() {
           title={
             <>
               Built for every
-              <br />
-              Indian language.
+              <br className="hidden sm:block" />
+              {" "}Indian language.
             </>
           }
           description="Nativee helps people speak, understand and connect across languages through voice, conversations, chat and calls."
         />
 
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mx-auto mt-9 flex w-full max-w-sm flex-col items-center justify-center gap-3 sm:mt-12 sm:max-w-none sm:flex-row sm:gap-4">
           <Button href="/launch">
             Try Nativee
           </Button>
@@ -36,7 +36,7 @@ export default function Hero() {
           </Button>
         </div>
 
-        <div className="mt-14 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm font-medium text-slate-500">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs font-medium text-slate-500 sm:mt-14 sm:gap-x-10 sm:text-sm">
           <span>Connect</span>
           <span>Converse</span>
           <span>Chat</span>
