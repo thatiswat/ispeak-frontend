@@ -1,42 +1,55 @@
+Absolutely buddy. The current README is solid in substance, but it is **too repetitive and slightly overclaims in places**. Since this is specifically the `nativee-web` repository, I’d make it more professional, concise, and aligned with the current Nativee positioning.
+
+Here is the **updated `README.md`**:
+
+````markdown
 # Nativee
 
 **AI communication infrastructure for multilingual products.**
 
-Nativee provides speech recognition, translation, text-to-speech, and communication infrastructure for developers and enterprises building products across India's languages.
+Nativee is building communication infrastructure for applications that need to
+understand, translate, and generate speech across languages, starting with
+India's diverse linguistic ecosystem.
 
-🌐 **Website:** https://www.nativee.in
+🌐 https://www.nativee.in
 
 ---
 
 ## Overview
 
-India is home to hundreds of languages and millions of people who communicate primarily in languages other than English.
+India is home to hundreds of languages and millions of people who communicate
+primarily in languages other than English.
 
-Nativee is building infrastructure that makes multilingual communication accessible to modern software.
+Nativee is building infrastructure that makes multilingual communication
+accessible to modern software.
 
-The platform brings together speech, language, and communication capabilities through a unified infrastructure layer designed for applications serving India's diverse linguistic ecosystem.
+The platform brings together speech, language, and communication capabilities
+through a unified infrastructure layer for developers and businesses building
+multilingual products.
 
 ---
 
 ## What Nativee Provides
 
-Nativee focuses on the core infrastructure required to build multilingual applications.
+Nativee focuses on the core infrastructure required to build multilingual
+communication experiences.
 
 ### Speech Recognition
 
-Convert spoken language into text across supported Indian languages.
+Convert spoken language into text across supported languages.
 
 ### Translation
 
-Translate content between supported Indian languages and other languages.
+Translate content between supported languages and language pairs.
 
 ### Text-to-Speech
 
-Generate natural speech from text for multilingual applications and experiences.
+Generate speech from text for multilingual applications and experiences.
 
 ### Communication Infrastructure
 
-Build multilingual communication experiences without having to independently integrate and manage multiple language services.
+Build multilingual communication experiences without independently integrating
+and managing multiple language services.
 
 ---
 
@@ -45,7 +58,7 @@ Build multilingual communication experiences without having to independently int
 Nativee is organized around a modular platform architecture.
 
 ```text
-Nativee
+Nativee Platform
 │
 ├── Web
 │   └── Product website and platform interface
@@ -60,7 +73,8 @@ Nativee
     └── Nativee mobile applications
 ````
 
-Each component is designed to evolve independently while operating as part of the broader Nativee platform.
+Each component is designed to evolve independently while operating as part of
+the broader Nativee platform.
 
 ---
 
@@ -72,8 +86,8 @@ Each component is designed to evolve independently while operating as part of th
 * Multilingual communication
 * REST APIs
 * Developer infrastructure
-* Enterprise-ready architecture
-* Support for Indian languages
+* Enterprise-oriented architecture
+* Indian-language support
 
 ---
 
@@ -81,37 +95,40 @@ Each component is designed to evolve independently while operating as part of th
 
 Nativee is designed around India's multilingual environment.
 
-The platform focuses on enabling applications to communicate across Indian languages rather than treating multilingual support as an afterthought.
+The platform focuses on enabling applications to communicate across Indian
+languages rather than treating multilingual support as an afterthought.
 
-Language coverage and capabilities will continue to expand as the platform develops.
+Language coverage and capabilities will expand as the platform develops.
 
 ---
 
 ## Architecture
 
-Nativee follows a modular architecture designed for scalability and independent service development.
+Nativee follows a modular architecture designed for independent development
+and scalability.
 
 ```text
-                    ┌──────────────────┐
-                    │      Nativee     │
-                    │     Platform     │
-                    └────────┬─────────┘
-                             │
-              ┌──────────────┼──────────────┐
-              │              │              │
-              ▼              ▼              ▼
-        ┌──────────┐   ┌──────────┐   ┌──────────┐
-        │   API    │   │  Engine  │   │   Web    │
-        └────┬─────┘   └────┬─────┘   └──────────┘
-             │              │
-             │       ┌──────┴──────┐
-             │       │             │
-             ▼       ▼             ▼
-        Applications Speech     Language
-                     Processing  Services
+                         ┌──────────────────┐
+                         │      Nativee     │
+                         │     Platform     │
+                         └────────┬─────────┘
+                                  │
+                   ┌──────────────┼──────────────┐
+                   │              │              │
+                   ▼              ▼              ▼
+             ┌──────────┐   ┌──────────┐   ┌──────────┐
+             │   API    │   │  Engine  │   │   Web    │
+             └────┬─────┘   └────┬─────┘   └──────────┘
+                  │              │
+                  │        ┌─────┴─────┐
+                  │        │           │
+                  ▼        ▼           ▼
+             Applications  Speech   Language
+                          Processing Services
 ```
 
-The architecture is intended to allow individual components to scale and evolve independently.
+The architecture allows individual components to evolve and scale
+independently.
 
 ---
 
@@ -131,13 +148,14 @@ nativee-web/
 └── ...
 ```
 
-The web application provides the public-facing Nativee experience and acts as an entry point to the platform.
+The web application provides the public-facing Nativee experience and acts as
+an entry point to the broader platform.
 
 ---
 
 ## Technology
 
-The Nativee web application is built using modern web technologies.
+The Nativee web application is built with:
 
 * Next.js
 * React
@@ -145,7 +163,8 @@ The Nativee web application is built using modern web technologies.
 * Tailwind CSS
 * Vercel
 
-Additional Nativee services use technologies appropriate to their individual workloads.
+Additional Nativee services use technologies appropriate to their individual
+workloads.
 
 ---
 
@@ -206,7 +225,9 @@ app/
 └── sitemap.ts
 
 components/
-└── ...
+├── home/
+├── layout/
+└── ui/
 
 docs/
 └── ...
@@ -228,17 +249,21 @@ The Nativee web application is deployed through Vercel.
 
 Production:
 
-**[https://www.nativee.in](https://www.nativee.in)**
+```text
+https://www.nativee.in
+```
 
-Every production deployment is connected to the Nativee Git repository and the `main` branch.
+Production deployments are connected to the Nativee Git repository and the
+`main` branch.
 
 ---
 
 ## API
 
-Nativee is designed to expose language and communication capabilities through APIs.
+Nativee is designed to expose language and communication capabilities through
+APIs.
 
-Typical application workflows include:
+A typical application workflow is:
 
 ```text
 Application
@@ -249,23 +274,27 @@ Nativee API
      ▼
 Language Engine
      │
- ┌───┼───────────┐
- ▼   ▼           ▼
-STT Translation TTS
-     │
-     ▼
-Application
+ ┌───┼────────────┐
+ ▼   ▼            ▼
+STT  Translation  TTS
+ │   │            │
+ └───┴────────────┘
+          │
+          ▼
+     Application
 ```
 
-API access, authentication, usage management, and additional platform capabilities are developed independently from the public web application.
+API access, authentication, usage management, and additional platform
+capabilities are developed independently from the public web application.
 
 ---
 
 ## Use Cases
 
-Nativee can be used as infrastructure for applications that require multilingual communication.
+Nativee can provide infrastructure for products that require multilingual
+communication.
 
-Examples include:
+Potential applications include:
 
 * Consumer applications
 * Enterprise software
@@ -282,9 +311,12 @@ Examples include:
 
 ## Product Direction
 
-Nativee is focused on building infrastructure rather than a collection of isolated language features.
+Nativee is focused on building **infrastructure rather than isolated language
+features**.
 
-The long-term direction is to provide a unified platform through which developers and businesses can build multilingual experiences across India's languages.
+The long-term direction is to provide a unified platform through which
+developers and businesses can build multilingual experiences across India's
+languages.
 
 ---
 
@@ -302,7 +334,8 @@ Production services are designed with:
 * Production HTTPS
 * Controlled deployment workflows
 
-Sensitive credentials and environment variables are never committed to this repository.
+Sensitive credentials and environment variables are never committed to this
+repository.
 
 ---
 
@@ -310,7 +343,8 @@ Sensitive credentials and environment variables are never committed to this repo
 
 Nativee is currently under active development.
 
-As the platform and repositories mature, contribution guidelines will be expanded to cover development workflows, testing, architecture, and pull requests.
+As the platform and repositories mature, contribution guidelines will expand
+to cover development workflows, testing, architecture, and pull requests.
 
 ---
 
@@ -318,7 +352,10 @@ As the platform and repositories mature, contribution guidelines will be expande
 
 Nativee is actively being developed.
 
-The platform, APIs, language engine, web application, and supporting infrastructure are evolving as new capabilities are implemented.
+The web application, APIs, language engine, mobile applications, and supporting
+infrastructure are evolving as new capabilities are implemented.
+
+The Nativee Mobile experience is currently being prepared for launch.
 
 ---
 
@@ -334,24 +371,5 @@ The platform, APIs, language engine, web application, and supporting infrastruct
 
 Copyright © Nativee.
 
-All rights reserved unless otherwise specified in an individual repository or source file.
-
-````
-
-### One important correction
-
-I deliberately **didn't claim specific things you haven't established**, such as "22+ languages supported" as a hard technical guarantee, specific latency numbers, SDK availability, or production API endpoints.
-
-That's better for the GitHub README. **Your README should describe the real product, not manufacture SEO signals.**
-
-Also, because this repository is specifically `nativee-web`, the README correctly identifies it as the **web application**, while the broader Nativee platform can have separate repositories for API, Engine, Mobile, etc.
-
-After you put it in:
-
-```bash
-git add README.md
-git commit -m "Improve Nativee project documentation"
-git push origin main
-````
-
-Then we can do the **GitHub repository About section** next — that's where I'd set the short description, website, and topics.
+All rights reserved unless otherwise specified in an individual repository or
+source file.
