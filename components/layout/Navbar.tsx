@@ -24,6 +24,7 @@ export default function Navbar() {
       <div className="relative mx-auto flex h-20 max-w-7xl items-center px-8">
 
         {/* Logo */}
+
         <Link
           href="/"
           aria-label="Nativee home"
@@ -36,6 +37,7 @@ export default function Navbar() {
         </Link>
 
         {/* Navigation */}
+
         <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 lg:flex">
           {links.map((item) => (
             <Link
@@ -48,10 +50,11 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Try Nativee */}
-        <div className="ml-auto hidden lg:block">
+        {/* Try Nativee → Launch */}
+
+        <div className="ml-auto">
           <Link
-            href="https://app.nativee.in"
+            href="/launch"
             className="rounded-2xl bg-[#1747FF] px-6 py-3 text-[15px] font-semibold text-white transition-colors duration-200 hover:bg-[#0f3ff5]"
           >
             Try Nativee

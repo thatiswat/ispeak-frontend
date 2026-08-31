@@ -24,7 +24,7 @@ export default function Hero() {
         />
 
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button href="https://app.nativee.in">
+          <Button href="/launch">
             Try Nativee
           </Button>
 
